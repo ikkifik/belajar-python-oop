@@ -1,0 +1,24 @@
+# Belajar Super -> Pewarisan
+
+class Hero:
+    def __init__(self, name, health):
+        self.name = name
+        self.health = health
+    
+    def showInfo(self):
+        print(f"{self.name} dengan health {self.health}")
+
+class Hero_intelligence(Hero):
+    def __init__(self, name):
+        # Hero.__init__(self, name, 100) # pemanggilan bisa seperti ini, tapi jika class super berganti nama maka pemanggilan juga harus ikut berganti nama
+        super().__init__(name, 100) # solusinya menggunakan method super()
+        super().showInfo()
+
+class Hero_strength(Hero):
+    def __init__(self, name):
+        # Hero.__init__(self, name, 200)
+        super().__init__(name, 200)
+        super().showInfo()
+
+lina = Hero_intelligence('lina')
+axe = Hero_strength('axe')
